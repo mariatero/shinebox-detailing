@@ -1,0 +1,20 @@
+# Secrets — never commit API keys / credentials
+key
+*.key
+*.pem
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Archives / build artifacts
+*.zip
+
+# Editor / tooling
+.claude/
+.idea/
+.vscode/
+
+# WordPress runtime (not part of the theme source)
+wp-content/uploads/

@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: shinebox_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: shinebox
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:6.5-php8.2-apache
+    container_name: shinebox_wp
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8090:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: shinebox
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_DEBUG: 1
+    volumes:
+      # Persist the whole WP install so plugins/uploads survive restarts
+      - wp_data:/var/www/html
+      # Mount our custom theme directly into the container for live editing
+      - ./wp-content/themes/shinebox:/var/www/html/wp-content/themes/shinebox
+
+volumes:
+  db_data:
+  wp_data:

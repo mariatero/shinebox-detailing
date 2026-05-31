@@ -1,0 +1,13 @@
+/*
+Theme Name: ShineBox
+Theme URI: https://shinebox.example
+Author: ShineBox
+Description: Custom one-page theme for ShineBox — mobile car polishing & detailing. Bilingual (English / Georgian) with built-in price calculator, gallery, booking form and reviews.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Text Domain: shinebox
+*/
+
+/* Actual styles live in assets/css/style.css (enqueued from functions.php).
+   This file only carries the theme header required by WordPress. */
