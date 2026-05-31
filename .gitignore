@@ -16,5 +16,8 @@ key
 .idea/
 .vscode/
 
+# Internal dev notes (kept local, not published)
+CLAUDE.md
+
 # WordPress runtime (not part of the theme source)
 wp-content/uploads/
